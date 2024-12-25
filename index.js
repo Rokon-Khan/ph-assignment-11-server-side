@@ -26,7 +26,7 @@ async function run() {
     await client.connect();
 
     const database = client.db("JobAssesmentDB");
-    // const addNewAssesment = database.collection("newAssesment");
+    const addNewAssignmnet = database.collection("assignments");
     const userCollection = database.collection("users");
 
     // Add New User To Database
@@ -43,6 +43,14 @@ async function run() {
     app.get("/users", async (req, res) => {
       const cursor = userCollection.find();
       const result = await cursor.toArray();
+      res.send(result);
+    });
+
+    // Add New Assignment to Database
+    app.post("/allassignmnets", async (req, res) => {
+      const newAssignment = req.body;
+      console.log("New Campaign Added", newAssignment);
+      const result = await addNewAssignmnet.insertOne(newAssignment);
       res.send(result);
     });
 
