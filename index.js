@@ -49,8 +49,34 @@ async function run() {
     // Add New Assignment to Database
     app.post("/allassignmnets", async (req, res) => {
       const newAssignment = req.body;
-      console.log("New Campaign Added", newAssignment);
+      console.log("New Assignment Added", newAssignment);
       const result = await addNewAssignmnet.insertOne(newAssignment);
+      res.send(result);
+    });
+
+    // Update  Assignment Data
+
+    app.put("/allassignmnets/:id", async (req, res) => {
+      const id = req.params.id;
+
+      const product = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updateProduct = {
+        $set: product,
+      };
+      const result = await addNewAssignmnet.updateOne(
+        filter,
+        updateProduct,
+        options
+      );
+      res.send(result);
+    });
+    // Get All Assignments
+
+    app.get("/allassignmnets", async (req, res) => {
+      const cursor = addNewAssignmnet.find();
+      const result = await cursor.toArray();
       res.send(result);
     });
 
