@@ -27,6 +27,7 @@ async function run() {
 
     const database = client.db("JobAssesmentDB");
     const addNewAssignmnet = database.collection("assignments");
+    const submitionAssignmnet = database.collection("submission");
     const userCollection = database.collection("users");
 
     // Add New User To Database
@@ -51,6 +52,14 @@ async function run() {
       const newAssignment = req.body;
       console.log("New Assignment Added", newAssignment);
       const result = await addNewAssignmnet.insertOne(newAssignment);
+      res.send(result);
+    });
+
+    // Take Assignment
+    app.post("/takeassignment", async (req, res) => {
+      const newSubmission = req.body;
+      console.log("New Assignment Submitted", newSubmission);
+      const result = await submitionAssignmnet.insertOne(newSubmission);
       res.send(result);
     });
 
