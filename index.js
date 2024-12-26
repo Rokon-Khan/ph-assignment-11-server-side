@@ -63,6 +63,14 @@ async function run() {
       res.send(result);
     });
 
+    // Get Take Assignment
+
+    app.get("/takeassignment", async (req, res) => {
+      const cursor = submitionAssignmnet.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
     // Delete Assignment
     app.delete("/allassignmnets/:id", async (req, res) => {
       const id = req.params.id;
