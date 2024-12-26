@@ -54,6 +54,14 @@ async function run() {
       res.send(result);
     });
 
+    // Delete Assignment
+    app.delete("/allassignmnets/:id", async (req, res) => {
+      const id = req.params.id;
+      console.log("Delete Campaign from Database", id);
+      const query = { _id: new ObjectId(id) };
+      const result = await addNewAssignmnet.deleteOne(query);
+      res.send(result);
+    });
     // Update  Assignment Data
 
     app.put("/allassignmnets/:id", async (req, res) => {
@@ -77,6 +85,14 @@ async function run() {
     app.get("/allassignmnets", async (req, res) => {
       const cursor = addNewAssignmnet.find();
       const result = await cursor.toArray();
+      res.send(result);
+    });
+
+    // Single assignment of ID
+    app.get("/allassignmnets/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await addNewAssignmnet.findOne(query);
       res.send(result);
     });
 
