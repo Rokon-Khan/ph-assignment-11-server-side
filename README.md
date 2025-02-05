@@ -1,35 +1,157 @@
-# PH-Assignment-11 Assignment Management System With JWT, Firebase Authentication & MongoDB CRUD
+# 📚 PH-Assignment-11 - Assignment Management System (Server-Side)  
 
-# https://ph-assignment-management-system.surge.sh/
+🚀 **Live Frontend:** [PH Assignment Management System](https://ph-assignment-management-system.surge.sh/)  
 
-## PH-Assignment-11 Assignment Management System With JWT
-- A strategic effort to manage public assignment contributions for a specific cause or initiative, often through events, online platforms, or community outreach. These assignment management aims to generate innovative ideas with different tech and education sectors. 
+## 📖 Overview  
 
-## Purpose of the Assignment Management System of the Website Project
+The **PH-Assignment-11 Server** is a backend system built with **Node.js, Express, MongoDB, and JWT authentication**. It provides secure API endpoints for user authentication, assignment management, and CRUD operations.  
 
-**1. Centralized Assignment Tracking:** The system allows educators to create, assign, and track student assignments in a single platform. By centralizing the assignment process, teachers can easily manage deadlines, track submission status, and evaluate progress, improving overall organization and productivity.
+---
 
-**2. Secure User Authentication:** The integration of Firebase Authentication ensures that only authorized users, such as students and instructors, can access the system. This enhances security by providing a reliable way to manage user accounts, allowing login via various methods like email/password or social media accounts, while ensuring data protection.
+## 🎯 Key Features  
 
-**3. Real-time Collaboration and Feedback:** Students and instructors can use the system to collaborate in real time, submit assignments, and provide feedback. With MongoDB, assignments and feedback can be updated dynamically, making it easier for students to receive quick feedback from teachers and for both parties to stay on the same page throughout the assignment process.
+✅ **User Authentication** – Firebase authentication with JWT security.  
+✅ **Assignment Management** – Users can create, update, delete, and track assignments.  
+✅ **MongoDB CRUD Operations** – Efficient data storage and retrieval.  
+✅ **Secure API Access** – Middleware-based authorization with JWT.  
+✅ **Cross-Origin Resource Sharing (CORS)** – Enables communication between frontend and backend.  
 
-**4. Efficient Assignment Management and Organization:** MongoDB's CRUD functionality (Create, Read, Update, Delete) allows for efficiently managing assignments, grades, and student progress. Teachers can easily create new assignments, review student submissions, update grades, and remove irrelevant records, while students can view their assigned tasks and track their completion status.
+---
 
-**5. Scalable and Extensible Platform:** The use of MongoDB as the database, combined with JWT for authentication, creates a highly scalable and extensible system. This means that as the number of students or assignments increases, the system can easily handle more users and data without compromising performance, while also being adaptable to future features or changes in user requirements.
+## 📂 Table of Contents  
 
+- [Installation](#installation)  
+- [Configuration](#configuration)  
+- [Usage](#usage)  
+- [Dependencies](#dependencies)  
+- [API Environment Variables](#api-environment-variables)  
+- [Troubleshooting](#troubleshooting)  
+- [License](#license)  
 
-## Key Features Assignment Management System Website
-- User Registration and Authentication
-- User Can Create, Delete, & Update and Manage Your Assignment
-- Responsive and User-Friendly Design
-- User Can Make the Assignment with three-level
-- User can take any assignment and any docs link such as Google Docs or PDF link
+---
 
-## This Server Side Use the below NPM Packages
- - mongoDb
- - dotenv
- - cors
- - express
+## 🛠️ Installation  
+
+### Prerequisites  
+Ensure you have the following installed on your system:  
+
+- **Node.js** (Latest LTS) → [Download](https://nodejs.org/)  
+- **MongoDB** → [Download](https://www.mongodb.com/)  
+- **Git** → [Download](https://git-scm.com/)  
+
+### Step 1: Clone the Repository  
+
+```sh
+git clone https://github.com/Rokon-Khan/ph-assignment-11-server-side.git
+cd your-server-folder
+```
+
+### Step 2: Install Dependencies  
+
+```sh
+npm install
+```
+
+---
+
+## ⚙️ Configuration  
+
+### 📄 Create a `.env` File  
+
+Create a `.env` file in the **root** directory and add the following variables:  
+
+```plaintext
+DB_USER=your_database_user
+DB_PASS=your_database_pass
+```
+
+**🔒 Important:** Do **not** commit the `.env` file to Git. Add it to `.gitignore` to keep your credentials secure.  
+
+---
+
+## 🚀 Usage  
+
+### Step 3: Start the Server  
+
+To start the **Assignment Management backend**, run:  
+
+```sh
+npm start
+```
+
+For development mode with **nodemon**:  
+
+```sh
+npm run dev
+```
+
+The server will be running at **http://localhost:5000/**.  
+
+---
+
+## 📦 Dependencies  
+
+This project uses the following **npm packages**:  
+
+- **MongoDB** – Database for storing assignments and user data  
+- **dotenv** – Manage environment variables  
+- **CORS** – Handle cross-origin requests  
+- **Express** – Backend framework for handling API requests  
+
+Install all dependencies with:  
+
+```sh
+npm install
+```
+
+---
+
+## 🌍 API Environment Variables  
+
+These are required for backend API communication and database connection.  
+
+| Variable Name         | Description                           |
+|-----------------------|---------------------------------------|
+| `DB_USER`            | MongoDB database user                 |
+| `DB_PASS`            | MongoDB database password             |
+
+---
+
+## 🛠️ Troubleshooting  
+
+### 1. **MongoDB Connection Issues**  
+
+- Ensure **MongoDB** is running locally or use a **MongoDB Atlas** cloud connection.  
+- Verify database credentials in `.env`.  
+
+### 2. **Port Already in Use Error**  
+
+If you see `Error: Port 5000 is already in use`, stop the process using:  
+
+```sh
+npx kill-port 5000
+```
+
+Or specify another port in `server.js`:  
+
+```js
+const PORT = process.env.PORT || 4000;
+```
+
+### 3. **JWT Authentication Errors**  
+
+- Ensure `ACCESS_TOKEN_SECRET` is set in `.env`.  
+- Make sure tokens are properly stored and sent in API requests.  
+
+---
+
+## 📜 License  
+
+This project is licensed under the **MIT License**.  
+
+---
+
+This README provides everything needed to set up, run, and troubleshoot your **PH-Assignment-11 Server-Side** project. Let me know if you need any modifications! 🚀
 
 
 
